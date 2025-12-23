@@ -66,10 +66,10 @@ class Estacionamiento(ArchivoJSON):
         salida = parse_hora_hhmm(salida_hhmm)
         mins = self._minutos(entrada, salida)
 
-        horas_cobrables = math.ceil(mins / 60)  # redondeo hacia arriba
+        horas_cobrables = math.ceil(mins / 60)  
         base = horas_cobrables * vehiculo.tarifa_hora
 
-        # Recargo punta si la HORA DE ENTRADA está en punta (regla simple)
+        
         recargo = base * RECARGO_PUNTA if self._es_horario_punta(entrada.time()) else 0.0
         return float(base + recargo)
 
@@ -82,7 +82,7 @@ class Estacionamiento(ArchivoJSON):
         return e
 
     def cargar_prueba_12(self) -> None:
-        # Si ya hay datos, no duplicar
+        
         if len(self._estadias) >= 12:
             return
         ejemplos = [
@@ -103,7 +103,7 @@ class Estacionamiento(ArchivoJSON):
             try:
                 self.registrar_estadia(patente, tipo, ent, sal)
             except Exception:
-                # no romper por un ejemplo malo
+                
                 pass
 
     def reporte(self) -> Dict[str, object]:

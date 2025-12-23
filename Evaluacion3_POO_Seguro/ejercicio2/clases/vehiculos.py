@@ -55,6 +55,6 @@ class Camion(Vehiculo):
 class Estadia:
     patente: str
     tipo: str
-    entrada: str  # HH:MM
-    salida: str   # HH:MM
+    entrada: str  
+    salida: str   
     cobro: float

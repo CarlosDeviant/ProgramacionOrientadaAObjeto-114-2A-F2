@@ -51,7 +51,7 @@ class SensorTemperatura(Sensor):
         return "C"
 
     def leer(self) -> Tuple[float, str]:
-        # Simula lectura en C o F
+        
         if random.random() < 0.5:
             return round(random.uniform(10, 35), 2), "C"
         return round(random.uniform(50, 95), 2), "F"
@@ -65,7 +65,7 @@ class SensorTemperatura(Sensor):
         raise ValueError("Unidad no soportada para temperatura.")
 
     def validar_rango(self, valor_std: float) -> None:
-        # rango razonable
+        
         if not (-50 <= valor_std <= 80):
             raise ValueError("Temperatura fuera de rango razonable.")
 
@@ -80,7 +80,7 @@ class SensorHumedad(Sensor):
         return "%"
 
     def leer(self) -> Tuple[float, str]:
-        return round(random.uniform(-5, 110), 2), "%"  # incluye fuera de rango para probar validación
+        return round(random.uniform(-5, 110), 2), "%"  
 
     def normalizar(self, valor: float, unidad_origen: str) -> float:
         return float(valor)
@@ -97,10 +97,10 @@ class SensorMovimiento(Sensor):
 
     @property
     def unidad_std(self) -> str:
-        return "mov"  # unidad simbólica
+        return "mov" 
 
     def leer(self) -> Tuple[float, str]:
-        # 1 = movimiento, 0 = no
+        
         return float(1 if random.random() < 0.35 else 0), "bin"
 
     def normalizar(self, valor: float, unidad_origen: str) -> float:

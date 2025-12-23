@@ -48,15 +48,15 @@ def menu() -> None:
             print(f"Costo total: ${resumen.costo_total:.0f}")
 
         elif op == "4":
-            # Prueba pedida: registrar varios destinos y simular envío de 2 mensajes
+            
             print("Cargando destinos de prueba...")
             pruebas = [
                 ("email", "cliente1@correo.cl"),
-                ("email", "fail@correo.cl"),     # simula fallo
+                ("email", "fail@correo.cl"),     
                 ("sms", "+56912345678"),
-                ("sms", "+56900000000"),        # simula fallo por contener 0
+                ("sms", "+56900000000"),        
                 ("app", "token_abcdef12345"),
-                ("app", "invalidtoken"),        # simula fallo
+                ("app", "invalidtoken"),      
             ]
             for c, d in pruebas:
                 notificador.registrar(canales[c], d)

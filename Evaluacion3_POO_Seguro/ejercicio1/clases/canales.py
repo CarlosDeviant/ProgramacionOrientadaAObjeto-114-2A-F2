@@ -49,11 +49,11 @@ class EmailCanal(CanalNotificacion):
         return True, ""
 
     def costo(self, mensaje: str) -> float:
-        # Costo fijo simbólico
+        
         return 5.0
 
     def enviar(self, destino: str, mensaje: str) -> bool:
-        # Simulación de envío: falla si el destino contiene 'fail'
+        
         return "fail" not in destino.lower()
 
 
@@ -73,11 +73,11 @@ class SMSCanal(CanalNotificacion):
         return True, ""
 
     def costo(self, mensaje: str) -> float:
-        # Costo fijo por SMS (hasta 160)
+        
         return 20.0
 
     def enviar(self, destino: str, mensaje: str) -> bool:
-        return "0" not in destino  # regla ficticia para simular fallos
+        return "0" not in destino  
 
 
 class AppTokenCanal(CanalNotificacion):
@@ -86,7 +86,7 @@ class AppTokenCanal(CanalNotificacion):
         return "app"
 
     def validar_destino(self, destino: str) -> bool:
-        # token simple: largo mínimo
+        
         return len(destino.strip()) >= 10
 
     def validar_mensaje(self, mensaje: str) -> Tuple[bool, str]:
@@ -97,7 +97,7 @@ class AppTokenCanal(CanalNotificacion):
         return True, ""
 
     def costo(self, mensaje: str) -> float:
-        # Barato
+        
         return 2.0
 
     def enviar(self, destino: str, mensaje: str) -> bool:

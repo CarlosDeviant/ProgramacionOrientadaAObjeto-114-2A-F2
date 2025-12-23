@@ -26,7 +26,7 @@ def main() -> None:
             medio = input_opcion("Medio (tarjeta/transferencia/billetera): ", ["tarjeta", "transferencia", "billetera"])
             datos = {}
 
-            # Datos específicos por medio
+            
             try:
                 if medio == "tarjeta":
                     cupo = input_float_positivo("Cupo disponible (simulado): ")

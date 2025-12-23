@@ -35,12 +35,12 @@ def input_opcion(mensaje: str, opciones: list[str]) -> str:
 
 
 def validar_email(email: str) -> bool:
-    # Validación simple (no perfecta, pero suficiente para el ejercicio)
+    
     return bool(re.fullmatch(r"[^\s@]+@[^\s@]+\.[^\s@]+", email))
 
 
 def validar_telefono(telefono: str) -> bool:
-    # Permite + y dígitos, largo razonable
+
     return bool(re.fullmatch(r"\+?\d{8,15}", telefono))
 
 

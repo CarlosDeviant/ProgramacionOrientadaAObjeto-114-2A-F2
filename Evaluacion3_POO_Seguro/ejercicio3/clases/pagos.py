@@ -38,11 +38,11 @@ class Tarjeta(MedioPago):
         return "tarjeta"
 
     def calcular(self, monto: float, datos: Dict[str, str]) -> Tuple[float, float]:
-        # Validación simple de cupo
+        
         cupo = float(datos.get("cupo", "0"))
         if cupo < monto:
             raise ValueError("Cupo insuficiente para pagar con tarjeta.")
-        recargo = monto * 0.025  # 2.5%
+        recargo = monto * 0.025  
         return monto + recargo, recargo
 
 
@@ -52,7 +52,7 @@ class Transferencia(MedioPago):
         return "transferencia"
 
     def calcular(self, monto: float, datos: Dict[str, str]) -> Tuple[float, float]:
-        # requiere confirmación (código)
+        
         codigo = datos.get("codigo", "").strip()
         if len(codigo) < 6:
             raise ValueError("Código de confirmación inválido (mín. 6).")
@@ -68,7 +68,7 @@ class BilleteraDigital(MedioPago):
         saldo = float(datos.get("saldo", "0"))
         if saldo < monto:
             raise ValueError("Saldo insuficiente en la billetera.")
-        recargo = 200.0  # fijo
+        recargo = 200.0  
         return monto + recargo, recargo
 
 

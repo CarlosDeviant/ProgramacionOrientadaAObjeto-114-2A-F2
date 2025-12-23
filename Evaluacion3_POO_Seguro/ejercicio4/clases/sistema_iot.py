@@ -76,7 +76,7 @@ class SistemaIoT(ArchivoJSON):
             if not lects:
                 continue
             valores = [l.valor_std for l in lects]
-            # movimiento: promedio = proporción de detección
+            
             stats[tipo] = {
                 "min": min(valores),
                 "max": max(valores),
